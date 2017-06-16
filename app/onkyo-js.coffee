@@ -1,11 +1,9 @@
 $(document).on("templateinit", (event) ->
-  console.log('templateinit, window.pimatic.Device: ', window.pimatic.Device);
 
   class OnkyoDeviceItem extends pimatic.DeviceItem
     #getItemTemplate: -> 'onkyodevice'
     constructor: (data, @device) ->
       super(data, @device)
-      console.log("Creating OnkyoDeviceItem: ", this, data, @device)
 
       powerAttribute = @getAttribute('power')
       unless powerAttribute?
@@ -58,7 +56,6 @@ $(document).on("templateinit", (event) ->
 
     updateMuted: ->
       muted = @mutedState()
-      console.log("Muted: ", muted)
 
       if muted
         @muteButton.addClass('ui-btn-active')
@@ -67,13 +64,10 @@ $(document).on("templateinit", (event) ->
 
     updateButtons: ->
       source = @sourceState()
-      console.log("Source: ", source)
 
       @sourceButtons.removeClass('ui-btn-active')
-      console.log('@sourceButtons: ', @sourceButtons)
       if source? and source != ""
         active = @sourceButtons.filter('[name='+source+']')
-        console.log('Active: ', active)
         active.addClass('ui-btn-active')
 
     switchPower: (btn) ->
@@ -84,6 +78,8 @@ $(document).on("templateinit", (event) ->
         .fail(ajaxAlertFail)
 
     sourceBtnPress: (btn) ->
+      console.log('btn:', btn)
+      console.log('this:', this)
       if @_restoringState then return
       @device.rest.switchSource({name: btn.key}, global: no)
         .done(ajaxShowToast)

@@ -37,7 +37,6 @@ module.exports = (env) ->
 
     discover: () ->
       env.logger.info('Starting discovery')
-      #TODO: remove IP here
       eiscp.discover({address: '192.168.178.98'}, @eiscpDiscovered)
 
     eiscpDiscovered: (err, result) =>
