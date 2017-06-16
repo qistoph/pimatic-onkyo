@@ -1,0 +1,33 @@
+{
+  "name": "pimatic-onkyo",
+  "description": "Remote control Onyko receivers",
+  "author": "Chris van Marle <qistoph@gmail.com>",
+  "main": "onkyo-plugin",
+  "files": [
+    "onkyo-plugin.coffee",
+    "README.md",
+    "onkyo-plugin-config-schema.coffee",
+    "device-config-schema.coffee",
+    "app/onkyo-html.jade",
+    "app/onkyo-js.coffee",
+    "lib/onkyo-control.coffee"
+  ],
+  "version": "0.1.0",
+  "homepage": "https://github.com/qistoph/pimatic-onkyo",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/qistoph/pimatic-onkyo.git"
+  },
+  "configSchema": "onkyo-plugin-config-schema.coffee",
+  "dependencies": {
+    "eiscp": "^0.2.0"
+  },
+  "peerDependencies": {
+    "pimatic": "0.8.*"
+  },
+  "engines": {
+    "node": ">0.8.x",
+    "npm": ">1.1.x"
+  }
+}

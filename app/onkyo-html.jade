@@ -1,0 +1,18 @@
+script#onkyodevice-template(type='text/template')
+  li.sortable.switch-device.no-header.thermostat
+    label.device-label(data-bind="text: name, tooltip: $data.labelTooltipHtml")
+    .controls.no-carousel-slide
+      .button-control-ui.ui-controlgroup.ui-controlgroup-horizontal.ui-corner-all.ui-mini.no-carousel-slide(data-role='controlgroup', data-type='horizontal', data-mini='true', data-enhanced='true')
+        .ui-controlgroup-controls
+          a.ui-btn.ui-first-child.ui-last-child.ui-btn-icon-notext.ui-icon-power-off.ui-corner-all(name='powerButton', data-bind='click: switchPower') On
+      <!-- ko if: $data.getConfig('guiShowVolumeControl') -->
+      .button-control-ui.ui-controlgroup.ui-controlgroup-horizontal.ui-corner-all.ui-mini.no-carousel-slide(data-role='controlgroup', data-type='horizontal', data-mini='true', data-enhanced='true')
+        .ui-controlgroup-controls
+          a.ui-first-child.ui-btn.ui-btn-icon-notext.ui-icon-minus.ui-corner-all(name='volDownButton', data-bind='click: volDown') Vol+
+          a.ui-btn.ui-corner-all(name='volMuteButton', data-bind='click: volMute') Mute
+          a.ui-last-child.ui-btn.ui-btn-icon-notext.ui-icon-plus.ui-corner-all(name='volUpButton', data-bind='click: volUp') Vol-
+      <!-- /ko -->
+      .button-control-ui.ui-controlgroup.ui-controlgroup-horizontal.ui-corner-all.ui-mini.no-carousel-slide(data-role='controlgroup', data-type='horizontal', data-mini='true', data-enhanced='true')
+        .ui-controlgroup-controls(data-bind="foreach: $data.device.config.buttons, afterRender: $dat.afterAttributeRender")
+          a.ui-btn.ui-corner-all.source-btn(data-bind="attr: { name: $data.key }, text: $data.text, click: $parent.sourceBtnPress.bind($parent), css: {'ui-first-child' : $index() === 0, 'ui-last-child' : $index() === ($parent.device.config.buttons.length - 1)}")
+        
