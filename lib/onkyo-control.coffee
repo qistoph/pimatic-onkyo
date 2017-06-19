@@ -2,7 +2,7 @@ module.exports = (env) ->
   Promise = env.require 'bluebird'
   assert = env.require 'cassert'
 
-  eiscp = env.require 'eiscp'
+  eiscp = require 'eiscp'
 
   class OnkyoControl extends require('events').EventEmitter
     constructor: () ->
