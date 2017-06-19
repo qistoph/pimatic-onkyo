@@ -14,17 +14,17 @@
   ],
   "version": "0.1.0",
   "homepage": "https://github.com/qistoph/pimatic-onkyo",
-  "private": true,
+  "private": false,
   "repository": {
     "type": "git",
     "url": "git://github.com/qistoph/pimatic-onkyo.git"
   },
   "configSchema": "onkyo-plugin-config-schema.coffee",
   "dependencies": {
-    "eiscp": "^0.2.0"
+    "eiscp": "https://github.com/simontaylor81/node-eiscp"
   },
   "peerDependencies": {
-    "pimatic": "0.8.*"
+    "pimatic": "0.9.*"
   },
   "engines": {
     "node": ">0.8.x",
